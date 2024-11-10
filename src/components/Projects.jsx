@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 const projects = [
   {
     img: "/images/threads.png",
@@ -31,7 +33,7 @@ const projects = [
     img: "/images/funiturestore.png",
     title: "Funiture store",
     parag:
-      "This is an ecommerce platform for selling funiture items. The funiture are grouped into category",
+      "This is an ecommerce platform for selling funiture items. The funiture are grouped into category and one can search an item by name",
     tech: [
       "react",
       "nodejs",
@@ -53,52 +55,67 @@ const Projects = () => {
     <>
       <main
         id="projects"
-        className="bg-blue-100 p-8 max-w-large m-auto flex flex-col items-center"
+        className="max-w-large px-4 md:px-0 m-auto flex flex-col items-center mb-28"
       >
-        <h1 className="text-3xl font-bold mb-8">Projects</h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 w-full md:w-10/12">
+        <h1 className="text-4xl font-bold mb-16 font-serif">Projects</h1>
+        <div className="flex flex-col gap-10 w-full md:w-12/12">
           {projects.map((project) => (
-            <article
+            <motion.article
               key={project.title}
-              className="bg-white p-0 rounded-lg shadow-md "
+              className="flex flex-col md:flex-row gap-5 p-0 rounded-lg shadow-md"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1.05 }}
+              transition={{
+                type: "spring",
+                stiffness: "50",
+                damping: 20,
+                duration: 0.5,
+              }}
+              viewport={{ amount: 0.3 }} // Triggers animation when 30% of element is in view
             >
-              <img
+              <motion.img
                 src={project.img}
                 alt={project.title}
-                className="rounded-t-lg w-full h-56  object-cover"
+                className="rounded-t-lg w-full h-96 object-cover"
+                whileHover={{ scale: 1.1 }} // Adds scale effect on hover
+                transition={{ duration: 0.3 }} // Smooth animation
               />
               <div className="p-4">
                 <h2 className="text-2xl text-center font-bold mb-2">
                   {project.title}
                 </h2>
-                <p className="mb-4 text-center">{project.parag}</p>
+                <p className="mb-4 text-center ">{project.parag}</p>
                 <h3 className="text-lg text-center font-semibold mb-2">
                   Technology Used:
                 </h3>
-                <ul className="flex flex-wrap gap-2 text-center mb-4">
+                <ul className="flex flex-wrap gap-2 text-center mb-4 justify-center">
                   {project.tech.map((tech, index) => (
                     <li
                       key={index}
-                      className=" bg-blue-400 text-white p-2 rounded-md shadow-md flex items-center"
+                      className="bg-blue-400 text-white p-2 rounded-md shadow-md flex items-center"
                     >
                       {tech}
                     </li>
                   ))}
                 </ul>
-                <div className="flex flex-col md:flex-row gap-2">
-                  <a href={project.link}>
-                    <button className="bg-blue-600 text-white px-2 py-2 w-full  hover:bg-blue-900">
+                <div className="flex flex-col md:flex-row gap-2 items-center justify-center">
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <button className="bg-blue-600 text-white px-2 py-2 w-full hover:bg-blue-900">
                       View Live Demo
                     </button>
                   </a>
                   <a href={project.github}>
-                    <button className="bg-gray-600 text-white px-4 py-2 w-full  hover:bg-gray-900">
+                    <button className="bg-gray-600 text-white px-4 py-2 w-full hover:bg-gray-900">
                       View Code on GitHub
                     </button>
                   </a>
                 </div>
               </div>
-            </article>
+            </motion.article>
           ))}
         </div>
       </main>

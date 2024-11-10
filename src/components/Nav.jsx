@@ -10,7 +10,7 @@ const Nav = () => {
 
   return (
     <>
-      <nav className="flex justify-between rounded-lg mb-2 bg-slate-300 p-4 max-w-large m-auto">
+      <nav className="flex justify-between rounded-lg mb-2  p-4 max-w-large m-auto">
         <div className="flex gap-1 items-center">
           <div className="block md:hidden">
             <button
@@ -22,23 +22,23 @@ const Nav = () => {
               <span className="block w-8 h-1 bg-black transform transition duration-300"></span>
             </button>
           </div>
-          <h2 className="text-lg  font-semibold">Brian Michael</h2>
+          <h2 className="text-xl font-bold font-serif">Brian Michael</h2>
         </div>
-        <div className="gap-7 hidden md:flex cursor-pointer">
-          <Link to="about" smooth={true}>
+        <div className="gap-7 hidden md:flex cursor-pointer font-serif">
+          <Link to="about" smooth={true} className="text-lg font-semibold">
             About
           </Link>
-          <Link to="projects" smooth={true}>
+          <Link to="projects" smooth={true} className="text-lg font-semibold">
             Projects
           </Link>
 
-          <Link to="contact" smooth={true}>
+          <Link to="contact" smooth={true} className="text-lg font-semibold">
             Contact
           </Link>
         </div>
         <div>
           <a href="mailto:michaelbrian466@gmail.com">
-            <button className="bg-blue-600 px-2 py-1 text-white rounded-lg  hover:bg-blue-900">
+            <button className="bg-blue-600 px-2 py-1 text-white rounded-lg font-semibold  hover:bg-blue-900">
               Email me
             </button>
           </a>
