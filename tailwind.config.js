@@ -6,6 +6,9 @@ module.exports = {
       maxWidth: {
         large: "1100px",
       },
+      backgroundImage: {
+        "discord-gradient": "linear-gradient(135deg, #2c2f33, #23272a)",
+      },
     },
   },
   plugins: [],
