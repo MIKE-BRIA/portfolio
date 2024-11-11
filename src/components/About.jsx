@@ -123,7 +123,7 @@ const About = () => {
             transition={{ type: "spring", stiffness: 50, duration: 0.6 }}
           >
             <h1 className="text-xl font-bold mb-4">About Me</h1>
-            <p className="mb-4 ">
+            <p className="mb-4 font-serif">
               I am passionate about leveraging technology to solve complex
               problems across various fields. With a strong foundation in both
               scientific research and software development, I am driven to
@@ -137,7 +137,7 @@ const About = () => {
               across multiple domains.
             </p>
 
-            <p className="mb-4">
+            <p className="mb-4 font-serif">
               The following are the tech stacks that I use regularly:
             </p>
             <div>
@@ -145,18 +145,18 @@ const About = () => {
                 {techs.map((tech) => (
                   <li
                     key={tech}
-                    className="bg-blue-400 text-white p-2 rounded-md shadow-md flex items-center"
+                    className="bg-blue-400 text-white p-2 rounded-md shadow-md flex items-center justify-center"
                   >
                     {tech}
                   </li>
                 ))}
               </ul>
             </div>
-            <div className="mt-4">
+            <div className="mt-6">
               <a
                 href="/BrianMichaelresume.docx" // Ensure the path matches where the resume is located in the public folder
                 download
-                className="border-2 border-black p-2"
+                className="border-2 border-blue-600 p-2"
               >
                 Download Resume
               </a>

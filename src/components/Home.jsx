@@ -78,7 +78,7 @@ const Home = () => {
             </p>
             <div className="mt-6 flex gap-3">
               <a href="mailto:michaelbrian466@gmail.com">
-                <button className="bg-blue-600 px-2 py-1 text-white rounded-lg hover:bg-blue-900">
+                <button className="border border-blue-600 px-2 py-1 text-white rounded hover:bg-blue-900">
                   Get in Touch
                 </button>
               </a>
@@ -92,7 +92,7 @@ const Home = () => {
                 View my
                 <a
                   href="https://github.com/MIKE-BRIA"
-                  className="bg-gray-600 text-white p-2 cursor-pointer rounded-lg"
+                  className="border border-blue-400 ml-2 text-white py-1 px-2 cursor-pointer rounded"
                 >
                   Github
                 </a>

@@ -11,11 +11,13 @@ const Contact = () => {
         to get back to you!
       </p>
 
-      <a href="mailto:michaelbrian466@gmail.com">
-        <button className="border border-blue-400 text-white px-4 py-2 rounded hover:bg-blue-900">
-          Click here to send message
-        </button>
-      </a>
+      <div className="relative inline-block bg-blue-500 rounded">
+        <a href="mailto:brianmichaeladero@gmail.com">
+          <button className="relative border bg-gray-600 border-blue-400 px-4 py-2 text-white rounded font-semibold   transition-transform duration-200 transform hover:-translate-y-1 hover:-translate-x-1">
+            Click here to send message
+          </button>
+        </a>
+      </div>
     </main>
   );
 };
