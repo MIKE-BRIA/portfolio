@@ -37,7 +37,7 @@ const Nav = () => {
           </Link>
         </div>
         <div className="relative inline-block bg-blue-500 rounded-lg">
-          <a href="mailto:michaelbrian466@gmail.com">
+          <a href="mailto:brianmichaeladero@gmail.com">
             <button className="relative border bg-gray-600 border-blue-400 px-2 py-1 text-white rounded-lg font-semibold   transition-transform duration-200 transform hover:-translate-y-1 hover:-translate-x-1">
               Email me
             </button>
