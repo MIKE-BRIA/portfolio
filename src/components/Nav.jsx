@@ -1,85 +1,40 @@
-import { useState } from "react";
-import { Link } from "react-scroll";
-
 const Nav = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const togglemenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  const navLinks = [
+    { name: "WORK", href: "#work" },
+    { name: "STACK", href: "#stack" },
+    { name: "LAB", href: "#lab" },
+    { name: "CONTACT", href: "#contact" },
+  ];
 
   return (
-    <>
-      <nav className="flex justify-between rounded-lg mb-2  p-4 max-w-large m-auto">
-        <div className="flex gap-1 items-center">
-          <div className="block md:hidden">
-            <button
-              onClick={togglemenu}
-              className="relative flex flex-col items-center justify-center w-10 h-10"
+    <nav className="sticky top-0 z-50 w-full bg-[#0B0E11] text-[#9CA3AF] text-md tracking-widest border-b border-[#1E2329] px-6 py-4">
+      <div className="max-w-7xl mx-auto flex items-center justify-between">
+        {/* Brand / Logo */}
+        <div className="text-white font-bold tracking-widest text-sm flex items-center">
+          B<span className="text-[#00C076] mx-0.5">/</span>MICHAEL
+        </div>
+
+        {/* Center Links */}
+        <div className="flex items-center space-x-8">
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              className="hover:text-white transition-colors text-sm duration-200"
             >
-              <span className="block w-8 h-1 bg-black mb-1 transform transition duration-300"></span>
-              <span className="block w-8 h-1 bg-black mb-1 transform transition duration-300"></span>
-              <span className="block w-8 h-1 bg-black transform transition duration-300"></span>
-            </button>
-          </div>
-          <h2 className="text-xl font-bold font-serif">Brian Michael</h2>
+              {link.name}
+            </a>
+          ))}
         </div>
-        <div className="gap-7 hidden md:flex cursor-pointer font-serif">
-          <Link to="about" smooth={true} className="text-lg font-semibold">
-            About
-          </Link>
-          <Link to="projects" smooth={true} className="text-lg font-semibold">
-            Projects
-          </Link>
 
-          <Link to="contact" smooth={true} className="text-lg font-semibold">
-            Contact
-          </Link>
+        {/* Right Status Badge */}
+        <div>
+          <span className="inline-flex items-center border border-[#00C076] text-[#00C076] text-[10px] font-semibold px-4 py-1.5 rounded-full tracking-widest hover:bg-blue-400 hover:text-white transition-colors cursor-pointer">
+            AVAILABLE
+          </span>
         </div>
-        <div className="relative inline-block bg-blue-500 rounded-lg">
-          <a href="mailto:brianmichaeladero@gmail.com">
-            <button className="relative border bg-gray-600 border-blue-400 px-2 py-1 text-white rounded-lg font-semibold   transition-transform duration-200 transform hover:-translate-y-1 hover:-translate-x-1">
-              Email me
-            </button>
-          </a>
-        </div>
-      </nav>
-
-      {isMenuOpen && (
-        <div className="fixed cursor-pointer inset-0 bg-black bg-opacity-75 flex flex-col items-center justify-center z-50">
-          <button
-            onClick={togglemenu}
-            className="absolute top-4 right-4 text-white text-3xl"
-          >
-            &times;
-          </button>
-          <Link
-            onClick={togglemenu}
-            to="about"
-            smooth={true}
-            className="text-white text-2xl mb-4"
-          >
-            About
-          </Link>
-          <Link
-            onClick={togglemenu}
-            to="projects"
-            smooth={true}
-            className="text-white text-2xl mb-4"
-          >
-            Projects
-          </Link>
-          <Link
-            onClick={togglemenu}
-            to="contact"
-            smooth={true}
-            className="text-white text-2xl mb-4"
-          >
-            Contact
-          </Link>
-        </div>
-      )}
-    </>
+      </div>
+    </nav>
   );
 };
 

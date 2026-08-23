@@ -1,171 +1,361 @@
-// const techs = [
-//   "React",
-//   "HTML",
-//   "CSS",
-//   "JavaScript",
-//   "Nodejs",
-//   "Expressjs",
-//   "Tailwind CSS",
-//   "Git/Github",
-//   "Postman",
-//   "Mongodb",
-//   "Typescript",
+// import { useRef } from "react";
+// import { motion, useScroll, useSpring } from "framer-motion";
+// import avatarImg from "../assets/avatar.jpg";
+
+// const timelineEvents = [
+//   {
+//     year: "2026",
+//     title: "B.Sc. Medical Laboratory Sciences",
+//     description:
+//       "Graduating from Murang'a University of Technology with core expertise in virology, clinical diagnostics, pathology, and laboratory informatics.",
+//   },
+//   {
+//     year: "2025-2026",
+//     title: "Hashi Medical Centre — Lab Technologist",
+//     description:
+//       "Managed STAT diagnostic testing, specimen collection, internal QC protocols, and pre/post-test patient counseling while supporting emergency care.",
+//   },
+//   {
+//     year: "2025-Ongoing",
+//     title: "Computational Healthtech & Research",
+//     description:
+//       "Initiated full-stack platforms and computer vision algorithms to automate laboratory diagnostics, genomic parsing, and scientific research workflows.",
+//   },
+//   {
+//     year: "2025",
+//     title: "KEMRI — Clinical & Research Attachment",
+//     description:
+//       "Executed specimen processing, infection control, and GCP compliance at KEMRI. Mapped SOPs, SERU ethical clearance, and data governance for health research projects.",
+//   },
+//   {
+//     year: "2024-2025",
+//     title: "Murang'a Level 5 Hospital — LIMS & EHR (Internal Attachment)",
+//     description:
+//       "Leveraged hospital LIMS, EHR, and KHIS systems to digitize diagnostic records, eliminate transcription errors, and aggregate monthly health statistics.",
+//   },
+//   {
+//     year: "2022",
+//     title: "Build mobile games and websites as a freelance",
+//     description:
+//       "Applied clinical insights to build full-stack web applications, automating manual lab worksheets and streamlining data pipelines using Python and SQL.",
+//   },
+//   {
+//     year: "2021",
+//     title: "First Line of code into production",
+//     description:
+//       "Engineered real-time trade performance tracking, playbook loggers, and time-series data infrastructure using FastAPI, React, and PostgreSQL.",
+//   },
+// ];
+// const stats = [
+//   { value: "4+", label: "YEARS AT THE BENCH" },
+//   { value: "15+", label: "SYSTEMS SHIPPED" },
+//   { value: "4", label: "LANGUAGES IN PROD" },
 // ];
 
-// const About = () => {
-//   return (
-//     <>
-//       <main
-//         id="about"
-//         className="max-w-large m-auto flex flex-col items-center "
-//       >
-//         <div className="flex flex-col md:flex-row mb-8 px-6 md:px-0 w-full md:w-12/12 m-auto items-center">
-//           <div className="md:w-1/2 w-full mb-4 md:mb-0">
-//             <img
-//               src="/images/cool.jpg"
-//               alt="Cool"
-//               className="rounded-lg shadow-md object-cover w-full h-auto"
-//             />
-//           </div>
-//           <div className="md:w-1/2 w-full md:pl-8">
-//             <h1 className="text-xl font-bold mb-4">About Me</h1>
-//             <p className="mb-4">
-//               I am passionate about leveraging technology to solve complex
-//               problems across various fields. With a strong foundation in both
-//               scientific research and software development, I am driven to
-//               create innovative solutions that address real-world challenges and
-//               make a positive impact on society. My goal is to apply my
-//               technical skills and interdisciplinary knowledge to develop
-//               software products that enhance human well-being, drive progress,
-//               and contribute to a better future. I am eager to bring my
-//               expertise and dedication to a software engineering role where I
-//               can continue to grow, learn, and make a meaningful difference
-//               across multiple domains.
-//             </p>
+// export default function About() {
+//   const containerRef = useRef(null);
 
-//             <p className="mb-4">
-//               The following are the tech stacks that I use regularly:
-//             </p>
-//             <div>
-//               <ul className="flex flex-wrap gap-3">
-//                 {techs.map((tech) => (
-//                   <li
-//                     key="tech"
-//                     className="bg-blue-400 text-white p-2 rounded-md shadow-md flex items-center"
-//                   >
-//                     {tech}
-//                   </li>
-//                 ))}
-//               </ul>
+//   // Track scroll inside the timeline container
+//   const { scrollYProgress } = useScroll({
+//     target: containerRef,
+//     offset: ["start center", "end center"],
+//   });
+
+//   // Smooth out the timeline line animation
+//   const scaleY = useSpring(scrollYProgress, {
+//     stiffness: 100,
+//     damping: 30,
+//     restDelta: 0.001,
+//   });
+
+//   return (
+//     <section
+//       id="lab"
+//       className="w-full bg-[#090D12] text-[#D1D5DB] py-24 px-6 border-t border-[#1C2430]"
+//     >
+//       <div className="max-w-7xl mx-auto">
+//         {/* Top Header */}
+//         <div className="mb-16">
+//           <p className="text-xs font-mono tracking-widest text-[#E28743] uppercase mb-3">
+//             THE LAB SIDE
+//           </p>
+//           <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+//             Result accuracy is a UX problem too.
+//           </h2>
+//           <p className="mt-4 text-base sm:text-lg text-gray-400 font-sans max-w-2xl leading-relaxed">
+//             Years at the bench taught me what a delayed result costs and where
+//             workflows quietly break. That’s the lens I bring to every interface,
+//             database schema, and API I design.
+//           </p>
+//         </div>
+
+//         {/* Grid Layout: Timeline Left | Photo & Stats Right */}
+//         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+//           {/* Left Column: Scrolling Timeline */}
+//           <div
+//             ref={containerRef}
+//             className="lg:col-span-6 relative pl-8 sm:pl-10"
+//           >
+//             {/* Background Line */}
+//             <div className="absolute left-3 sm:left-4 top-2 bottom-2 w-[2px] bg-[#1C2430]" />
+
+//             {/* Animated Dynamic Progress Line */}
+//             <motion.div
+//               style={{ scaleY }}
+//               className="absolute left-3 sm:left-4 top-2 bottom-2 w-[2px] bg-[#E28743] origin-top"
+//             />
+
+//             {/* Milestones */}
+//             <div className="space-y-12">
+//               {timelineEvents.map((event, idx) => (
+//                 <div key={idx} className="relative group">
+//                   {/* Timeline Dot */}
+//                   <span className="absolute -left-[29px] sm:-left-[33px] top-1.5 w-3 h-3 rounded-full bg-[#090D12] border-2 border-[#E28743] group-hover:bg-[#E28743] transition-colors" />
+
+//                   {/* Date Badge */}
+//                   <span className="text-xs font-mono font-bold text-[#E28743] tracking-wider block mb-1">
+//                     {event.year}
+//                   </span>
+
+//                   {/* Title & Description */}
+//                   <h3 className="text-xl font-bold text-white tracking-tight group-hover:text-[#FF9B54] transition-colors">
+//                     {event.title}
+//                   </h3>
+//                   <p className="mt-2 text-sm text-gray-400 font-sans leading-relaxed">
+//                     {event.description}
+//                   </p>
+//                 </div>
+//               ))}
 //             </div>
-//             <div className="mt-4">
-//               <a
-//                 href="/BrianMichaelresume.docx" // Ensure the path matches where the resume is located in the public folder
-//                 download
-//                 className="border-2 border-black p-2"
-//               >
-//                 Download Resume
-//               </a>
+//           </div>
+
+//           {/* Right Column: Sticky Media Frame & Stat Cards */}
+//           <div className="lg:col-span-6 lg:sticky lg:top-28">
+//             {/* Main Avatar Image Container */}
+//             <div className="relative rounded-2xl overflow-hidden border border-[#1C2430] bg-[#161C24] p-2 shadow-2xl">
+//               <div className="relative w-full aspect-square sm:aspect-[4/3] rounded-xl overflow-hidden">
+//                 <img
+//                   src={avatarImg}
+//                   alt="Lab Specialist"
+//                   className="w-full h-full object-cover object-center grayscale hover:grayscale-0 transition-all duration-500"
+//                 />
+//                 <div className="absolute inset-0 bg-gradient-to-t from-[#090D12] via-transparent to-transparent opacity-60" />
+//               </div>
+//             </div>
+
+//             {/* Stat Cards Row */}
+//             <div className="grid grid-cols-3 gap-4 mt-6">
+//               {stats.map((stat, idx) => (
+//                 <div
+//                   key={idx}
+//                   className="p-4 sm:p-5 rounded-xl bg-[#0E141D]/60 border border-[#1C2430] text-center flex flex-col justify-center items-center"
+//                 >
+//                   <span className="text-2xl sm:text-3xl font-extrabold font-mono text-[#E28743]">
+//                     {stat.value}
+//                   </span>
+//                   <span className="text-[10px] sm:text-xs font-mono tracking-wider text-gray-400 mt-1 uppercase">
+//                     {stat.label}
+//                   </span>
+//                 </div>
+//               ))}
 //             </div>
 //           </div>
 //         </div>
-//       </main>
-//     </>
+//       </div>
+//     </section>
 //   );
-// };
+// }
 
-// export default About;
-
-import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { motion, useScroll, useSpring, useInView } from "framer-motion";
+import avatarImg from "../assets/avatar.jpg";
 
-const techs = [
-  "React",
-  "HTML",
-  "CSS",
-  "JavaScript",
-  "Nodejs",
-  "Expressjs",
-  "Tailwind CSS",
-  "Git/Github",
-  "Postman",
-  "Mongodb",
-  "Typescript",
+const timelineEvents = [
+  {
+    year: "2026",
+    title: "B.Sc. Medical Laboratory Sciences",
+    description:
+      "Graduating from Murang'a University of Technology with specialized expertise in virology, clinical diagnostics, pathology, and healthcare informatics.",
+  },
+  {
+    year: "2025 - 2026",
+    title: "Hashi Medical Centre — Lab Technologist",
+    description:
+      "Managed STAT diagnostic testing, specimen processing, internal QC protocols, and pre/post-test patient counseling while supporting emergency medical care.",
+  },
+  {
+    year: "2025 - Present",
+    title: "Computational Healthtech & Research",
+    description:
+      "Architecting full-stack platforms and computer vision algorithms to automate clinical laboratory diagnostics, genomic parsing, and scientific research workflows.",
+  },
+  {
+    year: "2025",
+    title: "KEMRI — Clinical & Research Attachment",
+    description:
+      "Executed high-throughput specimen processing and GCP compliance at KEMRI. Mapped SOPs, SERU ethical clearance frameworks, and data governance for health research projects.",
+  },
+  {
+    year: "2024 - 2025",
+    title: "Murang'a Level 5 Hospital — Internal Attachment",
+    description:
+      "Gained practical clinical exposure to multi-department diagnostic benchwork while observing hospital EHR, LIMS, and KHIS systems for electronic record keeping.",
+  },
+  {
+    year: "2022",
+    title: "Freelance Engineering & Applications",
+    description:
+      "Engineered mobile games, responsive web platforms, and automated data pipelines using Python and SQL to eliminate manual paper workflows.",
+  },
+  {
+    year: "2021",
+    title: "First Production Systems Shipped",
+    description:
+      "Wrote and deployed first production systems, building real-time market data loggers, time-series infrastructure, and interactive analytics platforms using FastAPI, React, and PostgreSQL.",
+  },
 ];
 
-const About = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: false });
+const stats = [
+  { value: "4+", label: "YEARS AT THE BENCH" },
+  { value: "15+", label: "SYSTEMS SHIPPED" },
+  { value: "4", label: "LANGUAGES IN PROD" },
+];
+
+// Helper component to safely use hooks per milestone without violating React rules
+function TimelineNode({ year, title, description }) {
+  const itemRef = useRef(null);
+  const isInView = useInView(itemRef, {
+    margin: "-20% 0px -40% 0px",
+    once: false,
+  });
 
   return (
-    <>
-      <main
-        id="about"
-        className="max-w-large m-auto flex flex-col items-center mb-28"
-      >
-        <div className="flex flex-col-reverse gap-4 md:flex-row mb-8 px-6 md:px-0 w-full md:w-12/12 m-auto items-center">
-          <div className="md:w-1/2 w-full mb-4 md:mb-0">
-            {/* Image stays static, no animation */}
-            <motion.img
-              src="/images/cool.jpg"
-              alt="Cool"
-              className="rounded-lg shadow-md object-cover w-full h-auto"
-              initial={{ x: -100, opacity: 0 }}
-              animate={isInView ? { x: 0, opacity: 1 } : {}}
-              transition={{ type: "spring", stiffness: 50, duration: 0.6 }}
-            />
-          </div>
-          <motion.div
-            ref={ref}
-            className="md:w-1/2 w-full md:pl-8"
-            initial={{ x: -100, opacity: 0 }}
-            animate={isInView ? { x: 0, opacity: 1 } : {}}
-            transition={{ type: "spring", stiffness: 50, duration: 0.6 }}
-          >
-            <h1 className="text-xl font-bold mb-4">About Me</h1>
-            <p className="mb-4 font-serif">
-              I am passionate about leveraging technology to solve complex
-              problems across various fields. With a strong foundation in both
-              scientific research and software development, I am driven to
-              create innovative solutions that address real-world challenges and
-              make a positive impact on society. My goal is to apply my
-              technical skills and interdisciplinary knowledge to develop
-              software products that enhance human well-being, drive progress,
-              and contribute to a better future. I am eager to bring my
-              expertise and dedication to a software engineering role where I
-              can continue to grow, learn, and make a meaningful difference
-              across multiple domains.
-            </p>
+    <div ref={itemRef} className="relative group">
+      {/* Animated Fill Dot */}
+      <motion.span
+        initial={false}
+        animate={{
+          backgroundColor: isInView ? "#E28743" : "#090D12",
+          scale: isInView ? 1.25 : 1,
+          borderColor: "#E28743",
+        }}
+        transition={{ duration: 0.3 }}
+        className="absolute -left-[29px] sm:-left-[33px] top-1.5 w-3 h-3 rounded-full border-2 border-[#E28743] z-10"
+      />
 
-            <p className="mb-4 font-serif">
-              The following are the tech stacks that I use regularly:
-            </p>
-            <div>
-              <ul className="flex flex-wrap gap-3">
-                {techs.map((tech) => (
-                  <li
-                    key={tech}
-                    className="bg-blue-400 text-white p-2 rounded-md shadow-md flex items-center justify-center"
-                  >
-                    {tech}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="mt-6">
-              <a
-                href="/BrianMichaelresume.docx" // Ensure the path matches where the resume is located in the public folder
-                download
-                className="border-2 border-blue-600 p-2"
-              >
-                Download Resume
-              </a>
-            </div>
-          </motion.div>
-        </div>
-      </main>
-    </>
+      {/* Date Badge */}
+      <span className="text-xs font-mono font-bold text-[#E28743] tracking-wider block mb-1">
+        {year}
+      </span>
+
+      {/* Title & Description */}
+      <h3 className="text-xl font-bold text-white tracking-tight group-hover:text-[#FF9B54] transition-colors">
+        {title}
+      </h3>
+      <p className="mt-2 text-sm text-gray-400 font-sans leading-relaxed">
+        {description}
+      </p>
+    </div>
   );
-};
+}
 
-export default About;
+export default function About() {
+  const containerRef = useRef(null);
+
+  // Smooth scroll tracking relative to the container
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start 60%", "end 50%"],
+  });
+
+  const scaleY = useSpring(scrollYProgress, {
+    stiffness: 120,
+    damping: 25,
+    restDelta: 0.001,
+  });
+
+  return (
+    <section
+      id="lab"
+      className="w-full bg-[#090D12] text-[#D1D5DB] py-24 px-6 border-t border-[#1C2430]"
+    >
+      <div className="max-w-7xl mx-auto">
+        {/* Top Header */}
+        <div className="mb-16">
+          <p className="text-xs font-mono tracking-widest text-[#E28743] uppercase mb-3">
+            THE LAB SIDE
+          </p>
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+            Result accuracy is a UX problem too.
+          </h2>
+          <p className="mt-4 text-base sm:text-lg text-gray-400 font-sans max-w-2xl leading-relaxed">
+            Years at the bench taught me what a delayed result costs and where
+            workflows quietly break. That’s the lens I bring to every interface,
+            database schema, and API I design.
+          </p>
+        </div>
+
+        {/* Grid Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          {/* Left Column: Timeline */}
+          <div
+            ref={containerRef}
+            className="lg:col-span-6 relative pl-8 sm:pl-10"
+          >
+            {/* Base Background Track Line */}
+            <div className="absolute left-3 sm:left-4 top-2 bottom-2 w-[2px] bg-[#1C2430]" />
+
+            {/* Smooth Dynamic Progress Line */}
+            <motion.div
+              style={{ scaleY }}
+              className="absolute left-3 sm:left-4 top-2 bottom-2 w-[2px] bg-[#E28743] origin-top"
+            />
+
+            {/* Timeline Item List */}
+            <div className="space-y-12">
+              {timelineEvents.map((event, idx) => (
+                <TimelineNode
+                  key={idx}
+                  year={event.year}
+                  title={event.title}
+                  description={event.description}
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* Right Column: Avatar & Stats */}
+          <div className="lg:col-span-6 lg:sticky lg:top-28">
+            <div className="relative rounded-2xl overflow-hidden border border-[#1C2430] bg-[#161C24] p-2 shadow-2xl">
+              <div className="relative w-full aspect-square sm:aspect-[4/3] rounded-xl overflow-hidden">
+                <img
+                  src={avatarImg}
+                  alt="Lab Specialist & Software Engineer"
+                  className="w-full h-full object-cover object-center grayscale hover:grayscale-0 transition-all duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#090D12] via-transparent to-transparent opacity-60" />
+              </div>
+            </div>
+
+            {/* Stat Cards */}
+            <div className="grid grid-cols-3 gap-4 mt-6">
+              {stats.map((stat, idx) => (
+                <div
+                  key={idx}
+                  className="p-4 sm:p-5 rounded-xl bg-[#0E141D]/60 border border-[#1C2430] text-center flex flex-col justify-center items-center"
+                >
+                  <span className="text-2xl sm:text-3xl font-extrabold font-mono text-[#E28743]">
+                    {stat.value}
+                  </span>
+                  <span className="text-[10px] sm:text-xs font-mono tracking-wider text-gray-400 mt-1 uppercase">
+                    {stat.label}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

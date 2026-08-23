@@ -1,24 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
-  @apply bg-discord-gradient text-white; /* Apply custom gradient and text color */
+  @apply bg-discord-gradient text-white;
+
+  font-family: "Inter", sans-serif;
+  font-variant-numeric: tabular-nums; /* Perfect for prices & P&L */
 
   position: relative;
-  /* overflow: hidden; */
 }
 
-/* Add noise overlay using ::before pseudo-element */
+/* Noise overlay */
 body::before {
   content: "";
   position: absolute;
   background-color: #1b00e6;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: url("https://www.transparenttextures.com/patterns/diagmonds-light.png"); /* URL of noise texture */
-  opacity: 0.1; /* Adjust for a subtle effect */
-  pointer-events: none; /* Allow clicks to pass through */
+  inset: 0;
+
+  opacity: 0.1;
+  pointer-events: none;
 }

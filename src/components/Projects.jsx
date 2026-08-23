@@ -1,125 +1,126 @@
-import { motion } from "framer-motion";
-
-const projects = [
+const projectList = [
   {
-    img: "/images/threads.png",
-    title: "threads clone",
-    parag:
-      "This is a clone of threads that is also almost familiar to twitter. This project helped me understand socket.io and more other things",
-    tech: [
-      "react",
-      "nodejs",
-      "chakra-ui",
-      "javascript",
-      "Git/Github",
-      "socket.io",
-      "tailwind css",
-      "mongodb",
-    ],
-    link: "https://threads-m0a4.onrender.com",
-    github: "https://github.com/MIKE-BRIA/threads",
+    id: "01",
+    title: "Edgehouse Journal & Engine",
+    description:
+      "Quantitative trading playbook and performance analytics platform. Features trade execution logging, strategy backtesting engine, and real-time metric tracking across FX and digital asset markets.",
+    tags: ["PYTHON", "FASTAPI", "REACT", "POSTGRESQL", "DOCKER"],
+    metric: "TIMESCALEDB ENGINE",
+    year: "Ongoing",
+    link: "#",
   },
   {
-    img: "/projectimages/dashboo.png",
-    title: "Saas Landing Page",
-    parag:
-      "This is a Landing page for a Saas company that deals in building custom dashboard for their users at an affordable price",
-    tech: ["React", "Tailwind css", "Git/Github", "Javascript"],
-    link: "https://dashland.web.app/",
-    github:
-      "https://github.com/MIKE-BRIA/projects/tree/master/portfolioprojects/dashlandingpage",
+    id: "02",
+    title: "Hemascope Cell Counter",
+    description:
+      "Computer vision service processing high-resolution peripheral blood smear and microscopy slides. Automates cell counting, morphology flagging, and pathology audit logging.",
+    tags: ["PYTHON", "OPENCV", "SCIPY", "FASTAPI"],
+    metric: "12K SLIDES ANALYZED",
+    year: "2026",
+    link: "#",
   },
   {
-    img: "/images/funiturestore.png",
-    title: "Funiture store",
-    parag:
-      "This is an ecommerce platform for selling funiture items. The funiture are grouped into category and one can search an item by name",
-    tech: [
-      "react",
-      "nodejs",
-      "chakra-ui",
-      "javascript",
-      "Git/Github",
-      "tailwind css",
-      "mongodb",
-      "postman",
-      "redux",
-    ],
-    link: "https://funiturestore.onrender.com",
-    github: "https://github.com/MIKE-BRIA/funiturestore",
+    id: "03",
+    title: "PathoVariant Sequence Tracker",
+    description:
+      "Genomic sequence parsing pipeline analyzing FASTA data and virology assay outputs to detect viral mutations, lineage clades, and clinical variant distributions.",
+    tags: ["BIOPYTHON", "PANDAS", "FASTAPI", "REACT"],
+    metric: "CLADE MAPPING LIVE",
+    year: "2025",
+    link: "#",
+  },
+  {
+    id: "04",
+    title: "EpiSpread Disease Simulator",
+    description:
+      "Mathematical modeling engine using differential equations to simulate transmission dynamics across population densities, intervention factors, and epidemiological parameters.",
+    tags: ["NUMPY", "SCIPY", "PLOTLY", "GO"],
+    metric: "SEIR ODE SOLVER",
+    year: "2025",
+    link: "#",
+  },
+  {
+    id: "05",
+    title: "LabQC Westgard Engine",
+    description:
+      "Laboratory Information Middleware ingesting raw analyzer outputs, computing standard deviations, and enforcing Westgard rules to prevent out-of-spec diagnostic runs.",
+    tags: ["NODE.JS", "TYPESCRIPT", "POSTGRESQL", "ALEMBIC"],
+    metric: "99.9% ASSAY ACCURACY",
+    year: "2025",
+    link: "#",
   },
 ];
 
 const Projects = () => {
   return (
-    <>
-      <main
-        id="projects"
-        className="max-w-large px-4 md:px-0 m-auto flex flex-col items-center mb-28"
-      >
-        <h1 className="text-4xl font-bold mb-16 font-serif">Projects</h1>
-        <div className="flex flex-col gap-10 w-full md:w-12/12">
-          {projects.map((project) => (
-            <motion.article
-              key={project.title}
-              className="flex flex-col md:flex-row gap-5 p-0 rounded-lg shadow-md"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1.05 }}
-              transition={{
-                type: "spring",
-                stiffness: "50",
-                damping: 20,
-                duration: 0.5,
-              }}
-              viewport={{ amount: 0.3 }} // Triggers animation when 30% of element is in view
+    <section
+      id="work"
+      className="w-full bg-[#090D12] text-[#D1D5DB] py-24 px-6 border-t border-[#1C2430]"
+    >
+      <div className="max-w-6xl mx-auto">
+        {/* Section Header */}
+        <div className="mb-16">
+          <p className="text-xs font-mono tracking-widest text-[#E28743] uppercase mb-3">
+            SELECTED WORK & RESEARCH
+          </p>
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
+            Systems built where the clinic <br className="hidden sm:inline" />
+            meets the codebase.
+          </h2>
+        </div>
+
+        <div className="border-b border-[#1C2430]" />
+
+        {/* Project List */}
+        <div className="divide-y divide-[#1C2430]">
+          {projectList.map((project) => (
+            <div
+              key={project.id}
+              className="group py-12 grid grid-cols-1 md:grid-cols-12 gap-8 items-start hover:bg-[#0E141D]/50 transition-colors duration-200 px-2 sm:px-4 rounded-lg"
             >
-              <motion.img
-                src={project.img}
-                alt={project.title}
-                className="rounded-t-lg w-full h-96 object-cover"
-                whileHover={{ scale: 1.1 }} // Adds scale effect on hover
-                transition={{ duration: 0.3 }} // Smooth animation
-              />
-              <div className="p-4">
-                <h2 className="text-2xl text-center font-bold mb-2">
-                  {project.title}
-                </h2>
-                <p className="mb-4 text-center ">{project.parag}</p>
-                <h3 className="text-lg text-center font-semibold mb-2">
-                  Technology Used:
-                </h3>
-                <ul className="flex flex-wrap gap-2 text-center mb-4 justify-center">
-                  {project.tech.map((tech, index) => (
-                    <li
-                      key={index}
-                      className="bg-blue-400 text-white p-2 rounded-md shadow-md flex items-center"
-                    >
-                      {tech}
-                    </li>
-                  ))}
-                </ul>
-                <div className="flex flex-col md:flex-row gap-2 items-center justify-center">
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <button className="bg-blue-600 text-white px-2 py-2 w-full hover:bg-blue-900">
-                      View Live Demo
-                    </button>
-                  </a>
-                  <a href={project.github}>
-                    <button className="bg-gray-600 text-white px-4 py-2 w-full hover:bg-gray-900">
-                      View Code on GitHub
-                    </button>
-                  </a>
-                </div>
+              {/* ID Column */}
+              <div className="md:col-span-1">
+                <span className="text-xs font-mono text-[#6B7280] group-hover:text-[#E28743] transition-colors">
+                  {project.id}
+                </span>
               </div>
-            </motion.article>
+
+              {/* Main Info Column */}
+              <div className="md:col-span-6">
+                <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight group-hover:text-[#FF9B54] transition-colors">
+                  <a href={project.link}>{project.title}</a>
+                </h3>
+                <p className="mt-3 text-sm text-[#9CA3AF] font-sans leading-relaxed max-w-xl">
+                  {project.description}
+                </p>
+              </div>
+
+              {/* Tech Stack Pills */}
+              <div className="md:col-span-3 flex flex-wrap gap-2 pt-1">
+                {project.tags.map((tag, idx) => (
+                  <span
+                    key={idx}
+                    className="px-2.5 py-1 text-[11px] font-mono tracking-wider rounded-full bg-[#161C24] border border-[#252E3B] text-[#9CA3AF]"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              {/* Metric & Year */}
+              <div className="md:col-span-2 text-left md:text-right flex flex-col justify-between h-full pt-1">
+                <span className="text-xs font-mono font-bold tracking-wider text-[#E28743]">
+                  {project.metric}
+                </span>
+                <span className="text-xs font-mono text-[#4B5563] mt-2 md:mt-0">
+                  {project.year}
+                </span>
+              </div>
+            </div>
           ))}
         </div>
-      </main>
-    </>
+      </div>
+    </section>
   );
 };
 
