@@ -146,12 +146,12 @@ export default function Contact() {
     {
       label: "GITHUB",
       value: "https://github.com/MIKE-BRIA",
-      href: "https://github.com",
+      href: "https://github.com/MIKE-BRIA",
     },
     {
       label: "LINKEDIN",
       value: "linkedin.com/in/brian-michael-097880270/",
-      href: "https://linkedin.com",
+      href: "https://linkedin.com/in/brian-michael-097880270/",
     },
   ];
 
