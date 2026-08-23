@@ -55,7 +55,7 @@ const Projects = () => {
   return (
     <section
       id="work"
-      className="w-full bg-[#090D12] text-[#D1D5DB] py-24 px-6 border-t border-[#1C2430]"
+      className="w-full bg-[#090D12] text-[#D1D5DB] py-24 px-6 border-t border-[#1C2430] scroll-mt-20"
     >
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
