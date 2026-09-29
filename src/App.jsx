@@ -1,32 +1,3 @@
-// // import About from "./components/About";
-// import About from "./components/About";
-// import Contact from "./components/Contact";
-// // import Footer from "./components/Footer";
-// import Home from "./components/Home";
-// import Nav from "./components/Nav";
-// import Projects from "./components/Projects";
-// import InfiniteSkillsScroll from "./components/Skills";
-// import Toolkit from "./components/ToolkitData";
-
-// const App = () => {
-//   return (
-//     <>
-//       <main>
-//         <Nav />
-//         <Home />
-//         <InfiniteSkillsScroll />
-//         <Projects />
-//         <Toolkit />
-//         <About />
-//         <Contact />
-//         {/* <Footer /> */}
-//       </main>
-//     </>
-//   );
-// };
-
-// export default App;
-
 import { useEffect } from "react";
 import About from "./components/About";
 import Contact from "./components/Contact";
@@ -35,6 +6,7 @@ import Nav from "./components/Nav";
 import Projects from "./components/Projects";
 import InfiniteSkillsScroll from "./components/Skills";
 import Toolkit from "./components/ToolkitData";
+import WhatsAppBubble from "./components/WhatsAppBubble";
 
 const App = () => {
   useEffect(() => {
@@ -62,6 +34,7 @@ const App = () => {
         <Toolkit />
         <About />
         <Contact />
+        <WhatsAppBubble />
       </main>
     </>
   );
